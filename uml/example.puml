@@ -1,0 +1,31 @@
+@startuml
+
+
+
+node "backend" {
+  [load-balancer] 
+  [tomcat-01]
+  [tomcat-02]
+  [pgbouncer]
+}
+
+
+
+
+
+
+
+database postgresql {
+ 
+}
+
+[apache] --> [load-balancer]
+ [load-balancer] --> [tomcat-01]
+
+ [load-balancer] --> [tomcat-02]
+[tomcat-01] --> [pgbouncer]
+[tomcat-02] --> [pgbouncer]
+[pgbouncer] --> postgresql
+
+[tomcat-02] #Red
+@enduml

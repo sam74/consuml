@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+.log
+run.sh
+build.sh
+docker-compose.yml

@@ -1,0 +1,18 @@
+{
+  "name": "monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "CONSUL_METRICS_URL=http://192.168.10.198:9107/metrics PUML_SERVICE_URL=http://192.168.10.60:9080 node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "qs": "^6.10.1"
+  }
+}

@@ -1,0 +1,42 @@
+@startuml
+node "ConsUML architecture" {
+     [UI(index.html)] --> API1
+  API1 - [server.js]
+  [server.js] --> [consuml.js]
+  [consuml.js] --> [puller.js]
+  [consuml.js] --> [parser.js]
+  [consuml.js] --> [drawer.js]
+[config.js]
+}
+
+cloud {
+ [consul (external server)] as consul
+ API2 - consul
+}
+cloud {
+ [plantuml (external server)] as plantuml
+ API3 - plantuml
+}
+
+[drawer.js]-->API3
+[puller.js]-->API2
+
+[server.js] #Green
+[consul] #Green
+[plantuml] #Green
+
+note right of server.js 
+REST server default on port 3000
+display service status in uml diagram
+end note
+note bottom of consul
+ External service, 
+ provides health check metrics
+ end note
+
+note bottom of plantuml
+External service, 
+to generate uml diagram in svg format
+end note
+
+@enduml
